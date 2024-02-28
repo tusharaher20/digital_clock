@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <title>Digital Clock</title>
+</head>
+
+<body>
+    <span class="flex items-center justify-center h-screen bg-black">
+
+        <div class="text-center">
+            <h1 class="text-4xl font-bold mb-4 text-white">Digital Clock</h1>
+            <div id="clock" class=" text-white text-6xl font-bold"></div>
+        </div>
+
+        <script>
+            // Function to update the clock display
+            function updateClock() {
+                // Get the current time
+                const now = new Date();
+
+                // Extract hours, minutes, and seconds
+                const hours = now.getHours().toString().padStart(2, '0');
+                const minutes = now.getMinutes().toString().padStart(2, '0');
+                const seconds = now.getSeconds().toString().padStart(2, '0');
+
+                // Display the time in the 'clock' element
+                const clockElement = document.getElementById('clock');
+                clockElement.textContent = `${hours}:${minutes}:${seconds}`;
+            }
+
+            // Initial call to set the clock immediately
+            updateClock();
+
+            // Set an interval to update the clock every second
+            setInterval(updateClock, 1000);
+        </script>
+
+    </span>
+</body>
+
+</html>
